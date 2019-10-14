@@ -44,12 +44,13 @@ A aba 'Resultado Final' tem os dados que são exportados para o csv que serve de
        kernel => 'rfc', 'linear', 'rbf' ou 'poly'
        param => array com os dados a serem analisados pelo modelo. Podem ser vários, tipo:
         [[6.9,0.48,0.2,1.9,0.082,9,23,0.99585,3.39,0.43,9.05], [6.9,0.48,0.2,1.9,0.082,9,23,0.99585,3.39,0.43,9.05]]
-  
+	Esses parâmetros não são os valores desta base, então tem que ajustar isso ;)
+	
 Para o parâmetro kernel, deixei o valor 'rfc' como padrão (se não passar nada na chamada do método, ele vai usar o 'rfc' como kernel.
 A propósito, rfc = Random Forest Classifier...
 
-# Se não quiserem usar essa base, acho que pode ser feita a alteração sem ter que mexer muito no python, então fiquem a vontade para estragar tudo.
-# Não terminei tudo, só mesmo a parte da base, então as classes ainda precisam ser ajustadas. Talvez fosse interessante colocar um gráfico lá na classe de análise.
+Se não quiserem usar essa base, acho que pode ser feita a alteração sem ter que mexer muito no python, então fiquem a vontade para estragar tudo.
+Não terminei tudo, só mesmo a parte da base, então as classes ainda precisam ser ajustadas. Talvez fosse interessante colocar um gráfico lá na classe de análise.
 
 
 
