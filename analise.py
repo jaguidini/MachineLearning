@@ -1,8 +1,6 @@
 import config
 import numpy as np
 import pandas as pd
-import collections
-import warnings
 from scipy import stats
 
 class Analise():
@@ -19,13 +17,6 @@ class Analise():
        lo, hi = np.tanh((lo_z, hi_z))
  
        return r, p, lo, hi
-
-    def checa_correlacao(self, r, p, lo, hi):
-        if (r > lo) & (r < hi) :
-            forca = valida_forca_correlacao(r, lo, hi)
-            return r, lo, hi, forca
-
-        return 0, 0, 0, 0
 
     def valida_forca_correlacao(self, r, lo, hi):        
 
@@ -51,13 +42,20 @@ class Analise():
         elif(r < maior2) & (r >= neutro):   
             return "RELAÇÃO FRACA POSITIVA"
 
-    def MostraRelacao(self, df):        
+    def checa_correlacao(self, r, p, lo, hi):
+        if (r > lo) & (r < hi) :
+            forca = self.valida_forca_correlacao(r, lo, hi)
+            return r, lo, hi, forca
+
+        return 0, 0, 0, 0
+
+    def MostraRelacao(self, df):
         c1 = 0
         for i, j in df.iteritems():
             c2 = 0
             for i2, j2 in df.iteritems():
-                r, p, lo, hi = pearsonr_ci(df[i], df[i2])
-                val_r, val_lo, val_hi, forca = checa_correlacao(r, p, lo, hi)
+                r, p, lo, hi = self.pearsonr_ci(df[i], df[i2])
+                val_r, val_lo, val_hi, forca = self.checa_correlacao(r, p, lo, hi)
                 if(val_r > 0) & (i != i2):
                     print(i,"/",i2," => ", val_r, val_lo, val_hi, forca)
                 c2 += 1
@@ -65,19 +63,26 @@ class Analise():
 
     def Normalizar(self):
         df = pd.read_csv(config.DIR_DATA + config.FILE_BASE, sep=";")
-        print(df['outcome_type'].value_counts())
-        df_normal = pd.get_dummies(df, 
-                                   columns=['animal_type', 'breed', 'color', 'date_of_birth', 'datetime', 'sex', 'outcome_type'],
-                                   drop_first=True, 
-                                   prefix=['animal_type_', 'breed_', 'color_', 'date_of_birth_', 'datetime_', 'sex_', 'outcome_type_'])
-        print(df_normal)
+        
+        #Colunas date_of_birth e datetime precisam ser revistas
+        df_normal = pd.concat([df.get(['age_days_upon_outcome', 'outcome_type']),
+                              pd.get_dummies(df.animal_type, prefix='animal_type_'),
+                              #pd.get_dummies(df.breed, prefix='breed_'),
+                              #pd.get_dummies(df.color, prefix='color_'),
+                              pd.get_dummies(df.sex, prefix='sex_'),
+                              ],
+                     axis=1)
+            
+        #print(df_normal)
+        #Salva arquivo
         df_normal.to_csv(config.DIR_DATA + config.FILE_NORMAL, sep=';', index = None, header=True)
-
         print('Arquivo {0} criado com sucesso!'.format(config.DIR_DATA + config.FILE_NORMAL))
-
-        #attributes = df.drop('outcome_type', axis=1)
-        #classes = df['outcome_type']
-
-
-Analise().Normalizar()
+        
+        return df_normal;
+        
+#BEGIN
+#Pega o dataframe normalizado
+df = Analise().Normalizar()
+#Mostra a relação
+#Analise().MostraRelacao(df)
         
