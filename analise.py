@@ -65,11 +65,12 @@ class Analise():
         df = pd.read_csv(config.DIR_DATA + config.FILE_BASE, sep=";")
         
         #Colunas date_of_birth e datetime precisam ser revistas
-        df_normal = pd.concat([df.get(['age_days_upon_outcome', 'outcome_type']),
+        df_normal = pd.concat([df.get(['age_days_upon_outcome']),
                               pd.get_dummies(df.animal_type, prefix='animal_type_'),
                               #pd.get_dummies(df.breed, prefix='breed_'),
                               #pd.get_dummies(df.color, prefix='color_'),
                               pd.get_dummies(df.sex, prefix='sex_'),
+                              df.get(['outcome_type']),
                               ],
                      axis=1)
             

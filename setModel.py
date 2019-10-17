@@ -13,7 +13,8 @@ from sklearn.linear_model import LogisticRegression
 class setModel():
     def __init__(self):        
         self.__root = config.ROOT_PATH     
-
+        
+    #por default pega o RandomForest
     def generateModel(self, model="RandomForest"):    
         df = pd.read_csv(config.DIR_DATA + config.FILE_NORMAL, delimiter=';')
        
