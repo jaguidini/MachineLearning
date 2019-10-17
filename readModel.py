@@ -21,3 +21,4 @@ param = [[15,0,1,0,0,0,0,1], [429,0,0,1,0,0,0,1]]
 readModel().readModel('RandomForest', param)
 readModel().readModel('DecisionTree', param)
 readModel().readModel('LogisticRegression', param)
+#readModel().readModel('svm', param)
