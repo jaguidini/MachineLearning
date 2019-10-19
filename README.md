@@ -11,7 +11,7 @@ A idéia do trabalho é fazer uma predição sobre a possibilidade de adoção d
 ## Versão V1:
 • Removemos as colunas "animal_id", "monthyear", "name" e "outcome_subtype.
 • Substituímos a coluna "age_upon_outcome" por 'age_days_upon_outcome', convertendo os valores para dias utilizando as colunas 'date_of_birth' e 'datetime'.
-  Substituímos a coluna "sex_upon_outcome" por 'sex', convertendo os valores para 'MALE' e 'FEMALE'
+• Substituímos a coluna "sex_upon_outcome" por 'sex', convertendo os valores para 'MALE' e 'FEMALE'
 • Alteramos os valores das células "date_of_birth" e "datetime", trocando o valor de 8 células cujas datas estavam invertidas.
 • Excluímos as linhas referentes à "sex_upon_outcome", 2 linhas com valor NULL, e "outcome_type", 2 linhas com valor VAZIO.
 
@@ -21,7 +21,7 @@ A idéia do trabalho é fazer uma predição sobre a possibilidade de adoção d
 • Removemos as colunas "date_of_birth" e "datetime", pois seus valores já foram utilizados na composição da coluna "age_days_upon_outcome", além do fato que colunas com datas não possuem o processo adequado da função "get_dummies".
 • Removemos 3.121 registros de animais que estavam sem informação de sexo. Neste momento, temos 68.317 registros.
 • Alteramos na coluna "outcome_type", os registros de tipo: "Disposal", "Relocate", "Return to Owner", "Rto-Adopt" e "Transfer", para o tipo "Not Adopted". Alteramos também na mesma coluna os registros do tipo "Adoption" para "Adopted". A intenção é criar duas classes para esta coluna, relacionando os animais adotados (Adopted) e os não adotados (Not Adopted).
-• Alteramos na coluna "animal_type", de "Other" para "Rabbit", onde a descrição na coluna "breed" continha "Rabbit" e "Lionhead"[Em análise] {A1}.
+• Alteramos na coluna "animal_type", de "Other" para "Rabbit", onde a descrição na coluna "breed" continha "Rabbit" e "Lionhead".
 • Removemos dos registros da coluna "breed" a descrição "%Mix%".
 
 ## Versão v3:
