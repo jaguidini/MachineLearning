@@ -54,3 +54,7 @@
   • Alteramos o nome da coluna "animal_type_new" para "animal_type".
   • Alteramos o nome da coluna "color_new" para "color".
   • Removemos o upper case dos registros da coluna "sex", alterando de "FEMALE" para "Female", e de "MALE" para "Male".
+
+
+# Comentários:
+## 1) Tentamos executar o SVM, porém o processo levou mais de 12 horas para executar e não foi finalizado.
