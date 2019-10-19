@@ -1,3 +1,5 @@
+### Apenas para testaro SVM separadamente
+
 import config
 import pandas as pd
 from sklearn import svm
