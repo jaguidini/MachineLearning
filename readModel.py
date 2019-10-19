@@ -6,8 +6,13 @@ class readModel():
         self.__root = config.ROOT_PATH
     
     #por default pega o RandomForest
-    def readModel(self, model='RandomForest', param=[[15,0,1,0,0,0,0,1]]):
-        fileName = config.DIR_MODEL + config.FILE_MODEL.format(model)
+    def readModel(self, model='RandomForest', kernel='linear', param=[[15,0,1,0,0,0,0,1]]):
+
+        if model.upper() == 'SVM':
+            fileName = config.DIR_MODEL + config.FILE_MODEL.format(model + '_' + kernel)
+        else:
+            fileName = config.DIR_MODEL + config.FILE_MODEL.format(model)
+
         classifier = joblib.load(fileName)
         
         print("Com o modelo (" + model + ") salvo: ")        
