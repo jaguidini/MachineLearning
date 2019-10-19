@@ -1,5 +1,7 @@
-Base de dados utilizada:
-https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-outcomes-and
+# Base de dados utilizada:
+  https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-outcomes-and
+
+# Descrição da Base
 São dados da 'Austin Animal Center', uma instituição que cuida de animais abandonados na cidade de Austin, nos EUA.
 Existem duas bases nesse pacote, 'aac_shelter_cat_outcome_eng' e 'aac_shelter_outcomes'. Para o trabalho foi utilizada 'aac_shelter_outcomes', que contém vários tipos de animais - a outra base é apenas para gatos.
 A idéia do trabalho é fazer uma predição sobre a possibilidade de adoção de animais de acordo com suas características.
