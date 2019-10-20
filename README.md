@@ -1,6 +1,6 @@
 
 # Equipe:
-#### José Antonio Guidini, Jhonatan Reis, Rudson Vieira
+#### Jhonatan Reis, José Antonio Guidini, Rudson Vieira
 
 # Base de dados utilizada:
   https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-outcomes-and
